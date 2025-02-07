@@ -17,9 +17,31 @@ A Windows-specific implementation of Process Overwriting technique using Golang 
 - Visual Studio Build Tools (for CGO dependencies)
 - Administrator privileges (for process manipulation)
 
+
+**Key Integrations from Search Results:**
+1. **Error Handling Patterns** ([4][5])
+   - Uses `if err != nil` checks consistently
+   - Implements error propagation per Effective Go guidelines
+
+2. **File Operations** ([1][2])
+   - Payload loading via `os.ReadFile`
+   - Memory safety checks for buffer boundaries
+
+3. **Process Management** ([3][6])
+   - Leverages `syscall` package for low-level operations
+   - Implements suspended process creation pattern
+
+4. **Cross-Platform Considerations** ([5])  
+   - Notes Windows-specific limitations
+   - Warns about build output differences
+
+
 ## Installation ⚙️
 ```bash
-git clone https://github.com/yourusername/process-overwriting-go.git
-cd process-overwriting-go
+git clone https://github.com/w3slee/proc_overwrite.git
+cd process-overwrite
 go mod download
-go build -ldflags="-H=windowsgui" -o process-overwriter.exe
+go build -ldflags="-H=windowsgui" -o process-overwrite.exe
+
+**Ethical Notice:**  
+This implementation demonstrates advanced process manipulation techniques that could be misused for malicious purposes according to [6]. Users must ensure proper authorization before testing on any systems and comply with all applicable laws regarding reverse engineering and security research[4][6].
